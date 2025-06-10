@@ -1,1 +1,13 @@
 langchain
+langchain-openai
+langchain-core
+langchain_community
+pypdf
+langchain_chroma
+sentence_transformers
+docx2txt
+streamlit
+uvicorn
+fastapi
+pydantic
+python-multipart
