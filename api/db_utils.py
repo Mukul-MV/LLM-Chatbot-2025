@@ -35,7 +35,12 @@ def insert_application_logs(session_id, user_query, gpt_response, model):
     conn = get_db_connection()
 
     conn.execute(
-        'INSERT INTO application_logs (session_id, user_query, gpt_response, model) VALUES (?,?,?,?)',
+        '''INSERT INTO application_logs (
+        session_id, 
+        user_query, 
+        gpt_response, 
+        model) 
+        VALUES (?,?,?,?)''',
         (session_id,user_query,gpt_response,model))
     
     conn.commit()
@@ -81,7 +86,9 @@ def delete_document_record(file_id):
 def get_all_documents():
     conn =get_db_connection()
     cursor = conn.cursor()
-    cursor.execute('SELECT id,filename,upload_timestamp FROM document_store ORDER BY upload_timestamp DESC')
+    cursor.execute('''SELECT id,filename,upload_timestamp 
+                   FROM document_store 
+                   ORDER BY upload_timestamp DESC''')
     documents = cursor.fetchall()
     conn.close()
     return [dict(doc) for doc in documents]

@@ -11,3 +11,9 @@ uvicorn
 fastapi
 pydantic
 python-multipart
+sentence-transformers
+chromadb
+langchain_chroma
+langchain_ollama
+huggingface_hub==0.17.3
+langchain-huggingface
